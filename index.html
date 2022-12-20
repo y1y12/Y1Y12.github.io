@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>ECharts</title>
+    <!-- 引入刚刚下载的 ECharts 文件 -->
+    <script src="js/echarts.js"></script>
+    <script src="js/infographic.js"></script>
+  </head>
+  <body>
+    <!-- 为 ECharts 准备一个定义了宽高的 DOM -->
+    <div id="main" style="width: 800px;height:600px; margin:0 auto;background-color: blanchedalmond;"></div>
+    <script type="text/javascript">
+      // 基于准备好的dom，初始化echarts实例
+      var myChart = echarts.init(document.getElementById('main'),'infographic');
+      
+      // 指定图表的配置项和数据
+      option = {
+  title: {
+    text: '中国各地区公园数量',
+    left:250,
+    textStyle: {
+      fontSize:30
+    },
+  },
+  tooltip: {
+    trigger: 'axis',
+    axisPointer: {
+      type: 'shadow',
+    }
+  },
+  legend: {
+    data: ['2020'],
+    left:560,
+    top:10
+  },
+  grid: {
+    left: '3%',
+    right: '4%',
+    bottom: '1%',
+    containLabel: true
+  },
+  xAxis: {
+    type: 'value',
+    boundaryGap: [0, 0.01]
+  },
+  yAxis: {
+    type: 'category',
+    data: ['北京', '天津', '河北', '山西', '内蒙古', '辽宁', '吉林','黑龙江','上海','江苏','浙江','安徽','福建','江西','山东','河南','湖北','湖南','广东','广西','海南','重庆','四川','贵州','云南','西藏','陕西','甘肃','青海','宁夏','新疆']
+  },
+  series: [
+    {
+      name: '2020',
+      type: 'bar',
+      data: [360, 140, 779, 284, 340, 606, 377,422,386,1194,1547,588,716,714,1299,538,520,456,4330,346,128,514,786,256,948,155,366,203,64,112,349]
+    }
+  ]
+};
+
+
+      // 使用刚指定的配置项和数据显示图表。
+      myChart.setOption(option);
+    </script>
+  </body>
+</html>
